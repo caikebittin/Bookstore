@@ -1,10 +1,14 @@
 using Bookstore.Blazor.Components;
+using Bookstore.CrossCutting.DependenciesApp;
+using Bookstore.Infrastructure.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddInfrasctructure(builder.Configuration);
 
 var app = builder.Build();
 
